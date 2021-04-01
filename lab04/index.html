@@ -85,7 +85,7 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
                         .data(parsedCSV).enter()
                         .append("tr")
                     .selectAll("td")
-                        .data(function(d) {console.log(d); return d; }).enter()
+                        .data(function(d) {return d; }).enter()
                         .append("td")
                         .html(function(d, i, j) {
                             const isCategory = ["0", "1"].includes(d);
