@@ -88,9 +88,9 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
                         .data(function(d) {console.log(d); return d; }).enter()
                         .append("td")
                         .html(function(d, i, j) {
-                            var isCategory = ["0", "1"].includes(d);
+                            const isCategory = ["0", "1"].includes(d);
                              if(j!=0 && i >= 4 && isCategory){
-                                 var imageUri = d==0 ? "./92.png" : "./93.png";
+                                const imageUri = d == "0" ? "./92.png" : "./93.png";
                                  return `<img src="${imageUri}" x="0" y="0" width="60" height="60">`;
                              } 
                             else return d; 
