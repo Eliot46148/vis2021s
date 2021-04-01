@@ -89,7 +89,7 @@ https://www.oxxostudio.tw/articles/201501/svg-d3-13-csv.html
                         .append("td")
                         .html(function(d, i, j) {
                             const isCategory = ["0", "1"].includes(d);
-                             if(j!=0 && i >= 4 && isCategory){
+                             if(i >= 4 && isCategory){
                                 const imageUri = d == "0" ? "./92.png" : "./93.png";
                                  return `<img src="${imageUri}" x="0" y="0" width="60" height="60">`;
                              } 
