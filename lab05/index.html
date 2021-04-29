@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>D3 Page Template</title>
-    <script src="http://d3js.org/d3.v6.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+    <title>Lab</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> <!-- v6.5.0 -->
+
+    <style>
+      .bar {
+        border: 1px black solid;
+        padding: 10px;
+        margin: 5px;
+        display: inline-block;
+        width: 10px;
+        height: 75px;
+        background-color: cyan;
+      }
+
+      body {
+        border: 1px red solid;
+        padding: 20px;
+      }
+
+    </style>
+
 </head>
 <body>
+
+    <!-- <div class="bar">早安!</div>
+    <div class="bar">午安!</div>
+    <div>晚安!</div> -->
+
     <script type="text/javascript">
-      // Your beautiful D3 code will go here
+      
+      d3.csv("data.csv", function(data){
+        d3.select("body")
+          .selectAll("div")
+          .data(data)
+          .enter()
+          .append("div")
+          .attr("class","bar")
+          .style("height",function(d){
+            return d["頻率"] = "px";
+          });
+      });
+
+
+      // d3.text("data.csv",function(data){
+      //   var parsedCsv = d3.csv.parseRows(data);
+
+      //   d3.select("body")
+      //     .selectAll("div")
+      //     .data(parsedCsv)          
+      //     .enter()                  
+      //     .append("div")
+      //     .filter(function(d, i){
+      //       return (i !=0);
+      //     })  
+      //     .attr("class","bar")
+      //     .style("height", function(d){
+      //       return d[1] + "px";
+      //     });          
+      // });
+
     </script>
   </body>
-</html>
+  </html>
   
