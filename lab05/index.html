@@ -68,7 +68,7 @@
         .enter()
         .append('rect')
         .attr('x', (d) => xScale(d.GB))
-        .attr('y', (d) => { return yScale(d.frequency); })
+        .attr('y', (d) => yScale(d.frequency))
         .attr('height', (d) => height - yScale(d.frequency))
         .attr('width', xScale.bandwidth())
         .on('mouseenter', function (actual, i) {
@@ -83,6 +83,17 @@
         .attr('y', 40)
         .attr('text-anchor', 'middle')
         .text('vis2021s-Lab5 (有鼠標hover效果)')
+
+      svg.selectAll()
+        .data(data)
+        .enter()
+        .append("text")
+        .text(function (d) {
+          return d.frequency;
+        })
+        .attr('x', (d) => { return xScale(d.GB) + margin + 13 })
+        .attr('y', (d) => { return yScale(d.frequency) + margin - 5 })
+        .attr('text-anchor', 'middle');
     });
 
 
